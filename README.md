@@ -91,3 +91,55 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
+# Hình ảnh minh hoạ 
+## Trang chủ 
+![image](https://github.com/user-attachments/assets/ef27d84e-ad59-4e14-bf9a-7b1f13a9dd8d)
+
+## Đăng ký
+![image](https://github.com/user-attachments/assets/9b3b7b15-1078-4114-a614-255a2127e649)
+
+## Đăng ký thành công 
+![image](https://github.com/user-attachments/assets/7e9c1de7-af8d-450f-8dd7-70133931a30b)
+
+## Đăng ký thất bại 
+![image](https://github.com/user-attachments/assets/a91ef4a8-6661-4fcc-972b-dc44bdb8aa92)
+
+## Đăng nhập
+![image](https://github.com/user-attachments/assets/28ff0892-707c-444f-bb65-171a511fccbb)
+
+## Đăng nhập thành công 
+![image](https://github.com/user-attachments/assets/f30e8816-11e5-4fd1-8aee-b6a19eb64abc)
+
+## Đăng nhập thất bại
+![image](https://github.com/user-attachments/assets/8bf70224-706d-4210-a7ed-786f10032d76)
+
+## Đăng nhập bị khoá tài khoản 
+![image](https://github.com/user-attachments/assets/3ed4ffbe-3969-440d-bc28-f9dce1b7f2bb)
+
+## Đổi mật khẩu 
+![image](https://github.com/user-attachments/assets/989197c0-69a6-4233-b497-f5afa13f03f7)
+
+## Đổi mật khẩu thành công 
+![image](https://github.com/user-attachments/assets/6a138501-21ba-40c8-a81b-7ca714cad102)
+
+## Đổi mật khẩu thất bại 
+![image](https://github.com/user-attachments/assets/70ec0466-f4a1-4166-8c35-e2442eec5e36)
+
+# Quản trị 
+## Bình thường 
+![image](https://github.com/user-attachments/assets/dc169fcc-85b2-4305-8192-216f05f507bd)
+
+## Có tài khoản bị khoá 
+![image](https://github.com/user-attachments/assets/3f4a825e-2400-401b-bcb2-64cebcb43a1b)
+
+
+
+
+
+
+
+
+
+
+
+
