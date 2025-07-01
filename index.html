@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block title %}Trang chủ{% endblock %}
+{% block content %}
+<style>
+  .greeting {
+  font-size: 22px;
+  color: #e67e22;
+  font-weight: bold;
+  background-color: #fcf3e4;
+  border: 2px dashed #e67e22;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: inline-block;
+  }
+  .content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: #f0f4f8;
+    text-align: center;
+  }
+  .content-box {
+    border: 2px solid #3498db;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .content-box h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+  }
+  .content-box p {
+    color: #34495e;
+    font-size: 18px;
+    margin: 10px 0;
+  }
+</style>
+
+<div class="content-container">
+  <div class="content-box">
+    <h2>Chào mừng bạn đến với hệ thống xác thực người dùng an toàn!</h2>
+    <p>Vui lòng chọn chức năng ở thanh điều hướng phía trên.</p>
+    {% if session.username %}
+      <p class="greeting">Xin chào, <strong>{{ session.username }}</strong></p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

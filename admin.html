@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang Quản trị</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+      body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f2f2;
+    }
+    .admin-banner {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .content-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  .content-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .content-box {
+    width: 100%;
+    background-color: #ffffff;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .content-box h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  th, td {
+    border: 1px solid #3498db;
+    padding: 12px;
+    text-align: center;
+    color: #34495e;
+  }
+  th {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  tr:hover {
+    background-color: #e8f4fd;
+  }
+  a.unlock-btn, a.delete-btn {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 0 5px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    display: inline-block;
+  }
+  a.unlock-btn {
+    background-color: #2ecc71;
+  }
+  a.unlock-btn:hover {
+    background-color: #27ae60;
+  }
+  a.delete-btn {
+    background-color: #e74c3c;
+  }
+  a.delete-btn:hover {
+    background-color: #c0392b;
+  }
+  @media (max-width: 768px) {
+    table {
+      font-size: 14px;
+    }
+    th, td {
+      padding: 8px;
+    }
+    .content-box {
+      padding: 15px;
+    }
+    a.unlock-btn, a.delete-btn {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+  }
+</style>
+<div class="admin-banner">
+  Trang Quản trị
+</div>
+<div class="content-container">
+  <div class="content-box">
+    <h2>Danh sách người dùng</h2>
+    <table>
+      <tr>
+        <th>Tên đăng nhập</th>
+        <th>Trạng thái</th>
+        <th>Ngày tạo</th>
+        <th>Hành động</th>
+      </tr>
+      {% for u in users %}
+      <tr>
+        <td>{{ u.username }}</td>
+        <td>{{ 'Bị khóa' if u.is_locked else 'Hoạt động' }}</td>
+        <td>{{ u.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        <td>
+          <a class="unlock-btn" href="{{ url_for('unlock_user', user_id=u.id, key=request.args.get('key')) }}">Mở khóa</a>
+          <a class="delete-btn" href="{{ url_for('delete_user', user_id=u.id, key=request.args.get('key')) }}">Xóa</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <div class="content-box">
+    <h2>Lịch sử đăng nhập</h2>
+    <table>
+      <tr>
+        <th>Hash tài khoản</th>
+        <th>Thời gian</th>
+        <th>IP</th>
+        <th>Kết quả</th>
+      </tr>
+      {% for log in logs %}
+      <tr>
+        <td>{{ log.username_hash }}</td>
+        <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        <td>{{ log.ip_address }}</td>
+        <td>{{ 'Thành công' if log.success else 'Thất bại' }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+</body>
+</html>
+
+<!-- Url truy cập trang quản trị: http://127.0.0.1:5000/admin?key=admin1 -->

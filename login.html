@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block title %}Đăng nhập{% endblock %}
+{% block content %}
+<style>
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: #f0f4f8;
+  }
+  .form-box {
+    border: 2px solid #3498db;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .form-box h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+  }
+  .form-box label {
+    color: #34495e;
+    font-weight: bold;
+  }
+  .form-box input[type="text"],
+  .form-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .form-box input[type="submit"] {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  .form-box input[type="submit"]:hover {
+    background-color: #27ae60;
+  }
+  .message {
+    margin-top: 20px;
+    color: #e74c3c;
+    font-weight: bold;
+  }
+</style>
+
+<div class="form-container">
+  <div class="form-box">
+    <h2>Đăng nhập</h2>
+    <form method="post">
+      <div>
+        <label>Tên đăng nhập:</label>
+        <input type="text" name="username" required>
+      </div>
+      <div>
+        <label>Mật khẩu:</label>
+        <input type="password" name="password" required>
+      </div>
+      <div>
+        <input type="submit" value="Đăng nhập">
+      </div>
+    </form>
+
+    {% if message %}
+      <div class="message">{{ message }}</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
